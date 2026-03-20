@@ -1,8 +1,10 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'europe-west2-docker.pkg.dev/peppy-house-459315-p9/masterd', '.']
+  args: ['build', '-t', 'my-local-image-name', '.'] # Build with a temporary local tag
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'europe-west2-docker.pkg.dev/$PROJECT_ID/masterd/${_IMAGE}']
+  args: ['tag', 'my-local-image-name', 'europe-west2-docker.pkg.dev/peppy-house-459315-p9/masterd/my-frist-image'] # Re-tag for push
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'europe-west2-docker.pkg.dev/peppy-house-459315-p9/masterd/my-frist-image']
 images:
 - 'europe-west2-docker.pkg.dev/$PROJECT_ID/masterd/${_IMAGE}'
 options:
