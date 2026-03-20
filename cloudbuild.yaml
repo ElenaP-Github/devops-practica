@@ -5,3 +5,5 @@ steps:
   args: ['push', 'europe-west2-docker.pkg.dev/$PROJECT_ID/masterd/${_IMAGE}']
 images:
 - 'europe-west2-docker.pkg.dev/$PROJECT_ID/masterd/${_IMAGE}'
+options:
+  logging: CLOUD_LOGGING_ONLY
